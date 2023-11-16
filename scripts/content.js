@@ -6,6 +6,9 @@ window.onload = function () {
       copyToClipboard(list[i]);
     });
   }
+  setTimeout(function () {
+    location.reload();
+  }, 3000);
 };
 
 function copyToClipboard(textToCopy) {
