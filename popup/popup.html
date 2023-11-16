@@ -5,9 +5,15 @@
     <title>Popup</title>
   </head>
   <body style="width: 400px; height: 500px">
-    <textarea type="text" id="toteClass" rows="2" cols="20"></textarea>
+    <!-- <textarea type="text" id="toteClass" rows="2" cols="20"></textarea>
     <input type="button" id="toteClassSave" value="저장" />
-    <div id="toteClassDisplay"></div>
+    <div id="toteClassDisplay"></div> -->
+
+    <label for="inputValues">바코드로 변경할 값을 입력하세요:</label>
+    <input type="text" id="inputValues" />
+    <button id="generateBarcodes">바코드 생성</button>
+
+    <canvas id="barcodeContainer"></canvas>
 
     <script src="popup.js"></script>
   </body>
