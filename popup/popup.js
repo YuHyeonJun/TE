@@ -1,79 +1,37 @@
-indow.onload = function () {
-  //로컬스토리지에 "toteClass"로 저장된 값 가져오기
-  // var toteClass = getLocalToteClass("toteClass");
-  // //저장된 값 표시
-  // setToteClassDisplay(toteClass);
-  // //popup.html의 toteClassSave에 이벤트 리스너 삽입
-  // var toteClassSave = document.getElementById("toteClassSave");
-  // toteClassSave.addEventListener("click", function () {
-  //   //popup.html의 id=toteClass의 값 받기
-  //   toteClass = document.getElementById("toteClass").value;
-  //   //로컬스토리지에 "toteClass"로 값 저장하기
-  //   setLocalToteClass("toteClass", toteClass);
-  //   //popup.html의 toteClassDisplay에 값 표시
-  //   setToteClassDisplay(toteClass);
-  // });
-  document
-    .getElementById("generateBarcodes")
-    .addEventListener("click", function () {
-      alert("버튼");
-      generateBarcode();
+window.onload = function () {
+  //네비게이터 class="section"의 이벤트 리스너 생성
+  var list = document.getElementsByClassName("section");
+  for (let i = 0; i < list.length; i++) {
+    list[i].addEventListener("click", function () {
+      showSection("section" + [i + 1]);
     });
+  }
+
+  //바코드 생성기 이벤트 리스너
+  document.getElementById("bardcodeBtn").addEventListener("click", function () {
+    openInNewTab();
+  });
 };
 
-// 로컬스토리지에 값 저장
-function setLocalToteClass(key, value) {
-  localStorage.setItem(key, value);
+//id=barcodeValue의 값을 url로 내부 html인 barcode.html로 전송
+function openInNewTab() {
+  var textareaContent = document.getElementById("popupBarcodeValue").value;
+  var url = "../barcode.html?param=" + encodeURIComponent(textareaContent);
+  var barcodeTab = window.open(url);
+  barcodeTab.focus();
 }
 
-// 로컬스토리지의 값 불러오기
-function getLocalToteClass(key) {
-  return localStorage.getItem(key);
-}
-
-// 현재 로컬스토리지의 값 표시
-function setToteClassDisplay(toteClass) {
-  if (toteClass !== null) {
-    document.getElementById("toteClassDisplay").textContent = toteClass;
-  } else {
-    document.getElementById("toteClassDisplay").textContent = "";
-  }
-}
-
-function generateBarcode() {
-  alert("생성");
-  var inputValues = document.getElementById("inputValues").value.split(",");
-
-  // 바코드 생성
-  var barcodeContainer = document.getElementById("barcodeContainer");
-  barcodeContainer.innerHTML = ""; // 이전에 생성된 바코드를 지우기
-
-  inputValues.forEach(function (inputValue) {
-    // 바코드를 담을 div 생성
-    var barcodeDiv = document.createElement("div");
-
-    // 바코드를 그릴 SVG 생성
-    var barcodeSvg = document.createElementNS(
-      "http://www.w3.org/2000/svg",
-      "svg"
-    );
-    barcodeSvg.setAttribute("id", "barcode-" + inputValue);
-    barcodeDiv.appendChild(barcodeSvg);
-
-    // 입력값을 바코드로 변환하여 그리기
-    JsBarcode("#barcode-" + inputValue, inputValue, {
-      format: "CODE128", // 바코드 형식
-      displayValue: true, // 바코드 아래에 값 표시
-      fontSize: 12,
-      height: 50,
-    });
-
-    // 입력값을 바코드 아래에 표시
-    var textElement = document.createElement("p");
-    textElement.textContent = "입력값: " + inputValue;
-    barcodeDiv.appendChild(textElement);
-
-    // 바코드를 웹페이지에 추가
-    barcodeContainer.appendChild(barcodeDiv);
+function showSection(sectionId) {
+  // 모든 섹션 숨기기
+  var sections = document.querySelectorAll("section");
+  sections.forEach(function (section) {
+    section.classList.remove("active");
   });
+
+  // 클릭한 섹션만 보이도록 설정
+  var selectedSection = document.getElementById(sectionId);
+  if (selectedSection) {
+    selectedSection.classList.add("active");
+    return;
+  }
 }

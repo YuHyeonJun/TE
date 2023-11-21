@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="barcode.js"></script>
+    <script src="JsBarcode.all.min.js"></script>
+    <style>
+      /* 생성된 바코드 엘리먼트의 스타일 수정 */
+      #barcode-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      #barcode {
+        margin-bottom: 10px;
+      }
+    </style>
+    <title>barcode</title>
+  </head>
+  <body>
+    <div>
+      <label for="inputValues"
+        >여러 값을 입력 가능 (공백으로 구분, 값 사이 공백이 여러개면 오류)
+      </label>
+
+      <p>
+        <input type="text" id="inputValues" style="width: 500px; height: 4em" />
+      </p>
+      <button id="barcodeGenerate">바코드 생성</button>
+    </div>
+    <div id="barcode-container"></div>
+  </body>
+</html>

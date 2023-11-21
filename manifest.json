@@ -14,10 +14,11 @@
   "content_scripts": [
     {
       "js": ["scripts/content.js"],
-      "matches": [
-        "https://www.outbound.coupang.com/batch/batch/get/*",
-        "http://localhost:*/*"
-      ]
+      "matches": ["https://outbound.coupang.com/batch/batch/get/*"]
+    },
+    {
+      "js": ["scripts/test.js"],
+      "matches": ["http://*/*", "https://*/*", "http://localhost:*/*"]
     }
   ]
 }
