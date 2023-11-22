@@ -7,7 +7,9 @@ window.onload = function () {
     });
 
   //URL로 입력받은 값 공백으로 구분하여 생성
-  var paramArray = getParameterByName("param", window.location.href).split(" ");
+  var paramArray = getParameterByName("param", window.location.href)
+    .trim()
+    .split(" ");
   //바코드 생성기 호출
   generateBarcodes(paramArray);
 };
@@ -24,7 +26,10 @@ function getParameterByName(name, url) {
 }
 function getBarcodeValue() {
   //inputValues 입력받은 값 공백으로 구분하여 생성
-  var inputArray = document.getElementById("inputValues").value.split(" ");
+  var inputArray = document
+    .getElementById("inputValues")
+    .value.trim()
+    .split(" ");
   //바코드 생성기 호출
   generateBarcodes(inputArray);
 }
@@ -53,6 +58,8 @@ function generateBarcodes(barcodeArray) {
       format: "CODE128", // Code 128 형식 사용
       displayValue: true, // 바코드 값 표시
       fontSize: 26, // 바코드 값 글자 크기
+      width: 1.5,
+      height: 60,
     });
   });
 }

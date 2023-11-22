@@ -11,7 +11,8 @@
         flex-direction: column;
         align-items: flex-start;
       }
-      #barcode {
+      #barcode-container > svg {
+        margin-left: 100px;
         margin-bottom: 10px;
       }
     </style>
@@ -20,7 +21,8 @@
   <body>
     <div>
       <label for="inputValues"
-        >여러 값을 입력 가능 (공백으로 구분, 값 사이 공백이 여러개면 오류)
+        >여러 값을 입력 가능. 공백(스페이스)으로 구분, 값 사이 공백이 여러개면
+        오류남
       </label>
 
       <p>
