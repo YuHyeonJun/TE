@@ -5,10 +5,19 @@ window.onload = function () {
   }, 30000);
 
   //해당 class에 클릭 이벤트 리스너
-  var list = document.getElementsByClassName("col-sm-9");
-  for (let i = 0; i < list.length; i++) {
-    list[i].addEventListener("click", function () {
-      copyToClipboard(list[i]);
+  var toteName = document.getElementsByClassName("col-sm-9");
+  for (let i = 0; i < toteName.length; i++) {
+    toteName[i].addEventListener("click", function () {
+      copyToClipboard(toteName[i]);
+    });
+  }
+
+  //출고번호 테스트
+  var test1 = document.getElementsByClassName("badge badge");
+  for (let index = 0; index < test1.length; index++) {
+    let order = test1[index].innerHTML;
+    test1[index].addEventListener("click", function () {
+      localStorage.setItem("order", order);
     });
   }
 };

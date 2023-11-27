@@ -1,4 +1,5 @@
 window.onload = function () {};
+
 function fetchHTML(url) {
   fetch(url)
     .then((response) => response.text())

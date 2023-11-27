@@ -1,10 +1,11 @@
 window.onload = function () {
   //바코드 생성 버튼 리스너
-  document
-    .getElementById("barcodeGenerate")
-    .addEventListener("click", function () {
-      getBarcodeValue();
-    });
+  // barcode.html의 주석처리의 연동 코드
+  // document
+  //   .getElementById("barcodeGenerate")
+  //   .addEventListener("click", function () {
+  //     getBarcodeValue();
+  //   });
 
   //URL로 입력받은 값 공백으로 구분하여 생성
   var paramArray = getParameterByName("param", window.location.href)
@@ -36,20 +37,18 @@ function getBarcodeValue() {
 
 function generateBarcodes(barcodeArray) {
   // 바코드를 표시할 컨테이너
-  var barcodeContainer = document.getElementById("barcode-container");
+  var barcodeContainer = document.getElementById("barcodeContainer");
   // 기존의 내용 초기화
   barcodeContainer.innerHTML = "";
 
   barcodeArray.forEach((value, index) => {
-    //svg 엘리먼트는 createEle 사용시 html obj로 반환되기 떄문에 svg는 NS를 사용
+    //svg 엘리먼트는 createElement 사용시 html obj로 반환되기 떄문에 svg는 NS를 사용
     let barcodeSvg = document.createElementNS(
       "http://www.w3.org/2000/svg",
       "svg"
     );
     //id에 index를 추가하여 구분
     barcodeSvg.id = "barcode " + index;
-    //css 설정을 위한 class 추가
-    barcodeSvg.classList.add("barcode");
     //부모 엘리멘트에 자식으로 추가
     barcodeContainer.appendChild(barcodeSvg);
 
@@ -58,8 +57,8 @@ function generateBarcodes(barcodeArray) {
       format: "CODE128", // Code 128 형식 사용
       displayValue: true, // 바코드 값 표시
       fontSize: 26, // 바코드 값 글자 크기
-      width: 1.5,
-      height: 60,
+      width: 1.5, // 바코드 넓이
+      height: 60, // 바코드 높이
     });
   });
 }

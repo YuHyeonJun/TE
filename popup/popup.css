@@ -37,6 +37,20 @@ section.active {
 textarea {
   width: 100%;
   height: 6.25em;
-  border: none;
   resize: none;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0px;
+}
+
+.readButton,
+.deleteButton {
+  margin: 5px;
+  padding: 3px 15px 3px 15px;
+}
+
+#historyContainer > * {
+  font-size: 120%;
 }

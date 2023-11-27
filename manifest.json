@@ -17,6 +17,10 @@
       "matches": ["https://outbound.coupang.com/batch/batch/get/*"]
     },
     {
+      "js": ["scripts/batch.js"],
+      "matches": ["https://outbound.coupang.com/order/detail/*"]
+    },
+    {
       "js": ["scripts/test.js"],
       "matches": ["http://*/*", "https://*/*", "http://localhost:*/*"]
     }
