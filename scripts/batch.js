@@ -5,7 +5,6 @@ window.onload = function () {
     var str = test2[index].innerHTML;
 
     if (str.indexOf(key) != -1) {
-      alert(str + " : " + key);
       test2[index].style.color = "green";
     }
   }

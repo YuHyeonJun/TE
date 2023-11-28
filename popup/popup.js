@@ -56,10 +56,11 @@ function removeLocalStorage(key) {
   localStorage.removeItem(key);
 }
 
-//id=barcodeValue의 값을 url로 내부 html인 barcode.html로 전송
+//url로 내부 barcode.html로 값 전송하여 새 창 열기
 function openInNewTab(popupTextareaValue) {
   var url = "../barcode.html?param=" + encodeURIComponent(popupTextareaValue);
-  var barcodeTab = window.open(url);
+  var size = "left=800, height=800, width=500";
+  var barcodeTab = window.open(url, "", size);
   barcodeTab.focus();
 }
 

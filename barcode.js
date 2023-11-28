@@ -56,7 +56,7 @@ function generateBarcodes(barcodeArray) {
     JsBarcode(barcodeSvg, value, {
       format: "CODE128", // Code 128 형식 사용
       displayValue: true, // 바코드 값 표시
-      fontSize: 26, // 바코드 값 글자 크기
+      fontSize: 22, // 바코드 값 글자 크기
       width: 1.5, // 바코드 넓이
       height: 60, // 바코드 높이
     });
