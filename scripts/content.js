@@ -15,11 +15,6 @@ window.onload = function () {
       localStorage.setItem("order", order);
     });
   }
-
-  // 30초마다 리프레시
-  setTimeout(() => {
-    location.reload();
-  }, 30000);
 };
 
 //클립보드로 복사 ( 클립보드api는 사용자의 행위(클릭 등)가 있어야 허용됨 )
