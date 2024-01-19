@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <script src="barcodeGenerator.js"></script>
+  <script src="JsBarcode.all.min.js"></script>
+  <style>
+    @page {
+      size: 10.6cm 15.24cm;
+      margin: 5px;
+    }
+
+    /* 생성된 바코드 엘리먼트의 스타일 수정 */
+    #barcodeContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    #barcodeContainer>svg {
+      margin-left: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+  <title>barcode</title>
+</head>
+
+<body>
+  <div id="barcodeContainer"></div>
+  <div>
+    <textarea id="popupBarcodeValue" placeholder="바코드 입력"></textarea>
+  </div>
+</body>
+
+</html>

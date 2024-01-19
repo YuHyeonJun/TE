@@ -37,6 +37,11 @@ window.onload = function () {
     createBarcodeHistory(textareaContentArray);
   });
 
+  document.getElementById("bardcodeGeneratorBtn").addEventListener("click", function () {
+    window.open("../barcodeGenerator.html")
+  })
+
+
   //바코드 생성 내역 호출
   getBarcodeHistory();
 };
