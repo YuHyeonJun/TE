@@ -13,7 +13,7 @@ function getBarcodeValue() {
   var inputArray = document
     .getElementById("popupBarcodeValue")
     .value.trim()
-    .split(" ");
+    .split(/ |\n/);
   //바코드 생성기 호출
   generateBarcodes(inputArray);
 }

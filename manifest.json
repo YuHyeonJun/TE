@@ -21,6 +21,10 @@
       "matches": ["https://outbound.coupang.com/order/detail/*"]
     },
     {
+      "js": ["scripts/rowCopy.js"],
+      "matches": ["https://outbound.coupang.com/workflow/*"]
+    },
+    {
       "js": ["scripts/test.js"],
       "matches": ["http://*/*", "https://*/*", "http://localhost:*/*"]
     }

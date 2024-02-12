@@ -33,7 +33,7 @@ window.onload = function () {
     popupTextareaValue = document.getElementById(popupBarcodeValueId).value;
     openInNewTab(popupTextareaValue);
 
-    var textareaContentArray = popupTextareaValue.trim().split(" ");
+    var textareaContentArray = popupTextareaValue.trim().split(/ |\n/);
     createBarcodeHistory(textareaContentArray);
   });
 
