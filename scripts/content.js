@@ -7,15 +7,28 @@ window.onload = function () {
     });
   }
 
-  //출고번호 테스트
-  var test1 = document.getElementsByClassName("badge badge");
-  for (let index = 0; index < test1.length; index++) {
-    let order = test1[index].innerHTML;
-    test1[index].addEventListener("click", function () {
-      localStorage.setItem("order", order);
-    });
-  }
+  var tableParnet = document.querySelector("table").parentElement;
+  var copybnt = document.createElement("button");
+  copybnt.setAttribute('onclick', 'copyColumn(7)')
+  copybnt.textContent = '복사하기'
+  tableParnet.prepend(copybnt)
+
 };
+
+//열 복사
+function copyColumn(columnIndex) {
+
+  var table = document.querySelector("table");
+  var rowResult = '';
+
+  for (var i = 1; i < table.rows.length; i++) {
+    var row = table.rows[i];
+    var rowinnerText = row.cells[columnIndex].innerHTML;
+    rowResult += rowinnerText + " ";
+  }
+  alert(rowResult.trim())
+}
+
 
 //클립보드로 복사 ( 클립보드api는 사용자의 행위(클릭 등)가 있어야 허용됨 )
 function copyToClipboard(textToCopy) {
