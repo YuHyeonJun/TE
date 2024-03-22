@@ -1,17 +1,7 @@
 window.onload = function () {
-  //바코드 생성 버튼 리스너
-  // barcode.html의 주석처리의 연동 코드
-  // document
-  //   .getElementById("barcodeGenerate")
-  //   .addEventListener("click", function () {
-  //     getBarcodeValue();
-  //   });
-
-  //URL로 입력받은 값 공백으로 구분하여 생성
   var paramArray = getParameterByName("param", window.location.href)
-    .trim()
+    .replaceAll(",", " ")
     .split(" ");
-  //바코드 생성기 호출
   generateBarcodes(paramArray);
 };
 
@@ -25,15 +15,6 @@ function getParameterByName(name, url) {
   if (!results[2]) return "";
   return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
-function getBarcodeValue() {
-  //inputValues 입력받은 값 공백으로 구분하여 생성
-  var inputArray = document
-    .getElementById("inputValues")
-    .value.trim()
-    .split(" ");
-  //바코드 생성기 호출
-  generateBarcodes(inputArray);
-}
 
 function generateBarcodes(barcodeArray) {
   // 바코드를 표시할 컨테이너
@@ -42,22 +23,18 @@ function generateBarcodes(barcodeArray) {
   barcodeContainer.innerHTML = "";
 
   barcodeArray.forEach((value, index) => {
-    //svg 엘리먼트는 createElement 사용시 html obj로 반환되기 떄문에 svg는 NS를 사용
-    let barcodeSvg = document.createElementNS(
-      "http://www.w3.org/2000/svg",
-      "svg"
-    );
+    let barcodeImg = document.createElement("img")
     //id에 index를 추가하여 구분
-    barcodeSvg.id = "barcode " + index;
+    barcodeImg.id = "barcode " + index;
     //부모 엘리멘트에 자식으로 추가
-    barcodeContainer.appendChild(barcodeSvg);
+    barcodeContainer.appendChild(barcodeImg);
 
     // JsBarcode를 사용하여 바코드 생성
-    JsBarcode(barcodeSvg, value, {
+    JsBarcode(barcodeImg, value, {
       format: "CODE128", // Code 128 형식 사용
       displayValue: true, // 바코드 값 표시
       fontSize: 22, // 바코드 값 글자 크기
-      width: 1.5, // 바코드 넓이
+      width: 1.6, // 바코드 넓이
       height: 60, // 바코드 높이
     });
   });

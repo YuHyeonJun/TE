@@ -1,41 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <script src="barcode.js"></script>
-    <script src="JsBarcode.all.min.js"></script>
-    <style>
-      @page {
-        size: 10.6cm 15.24cm;
-        margin: 5px;
-      }
-      /* 생성된 바코드 엘리먼트의 스타일 수정 */
-      #barcodeContainer {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      #barcodeContainer > svg {
-        margin-left: 10px;
-        margin-bottom: 10px;
-      }
-    </style>
-    <title>barcode</title>
-  </head>
-  <body>
-    <!--// barcode.js 주석처리된 코드와 연동
-      <div>
-      <label for="inputValues"
-        >여러 값을 입력 가능. 공백(스페이스)으로 구분, 값 사이 공백이 여러개면
-        오류남
-      </label>
 
-      <p>
-        <input type="text" id="inputValues" style="width: 500px; height: 4em" />
-      </p>
-      <button id="barcodeGenerate">바코드 생성</button>
-    </div> 
-  //-->
-    <div id="barcodeContainer"></div>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <script src="barcode.js"></script>
+  <script src="JsBarcode.all.min.js"></script>
+  <style>
+    /* 생성된 바코드 엘리먼트의 스타일 수정 */
+    #barcodeContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    #barcodeContainer>svg {
+      margin-left: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+  <title>barcode</title>
+</head>
+
+<body>
+  <div id="barcodeContainer"></div>
+</body>
+
 </html>

@@ -1,21 +1,28 @@
 window.onload = function () {
 
+  // 생성할려는 값 입력시 호출
   document
-    .getElementById("popupBarcodeValue")
+    .getElementById("barcodeValue")
     .addEventListener("input", function () {
-      getBarcodeValue();
+      generateBarcodes(getBarcodeValue());
     });
 
-};
+  //생성한 바코드 값을 새창으로 열기
+  document.getElementById("barcodeNewtab")
+    .addEventListener("click", function () {
+      barcodeNewtab(getBarcodeValue());
+    })
 
+};
+//입력한 값을 공백으로 구분된 형태로 출력
 function getBarcodeValue() {
-  //inputValues 입력받은 값 공백으로 구분하여 생성
+
   var inputArray = document
-    .getElementById("popupBarcodeValue")
+    .getElementById("barcodeValue")
     .value.trim()
     .split(/ |\n/);
-  //바코드 생성기 호출
-  generateBarcodes(inputArray);
+
+  return inputArray;
 }
 
 function generateBarcodes(barcodeArray) {
@@ -25,7 +32,6 @@ function generateBarcodes(barcodeArray) {
   barcodeContainer.innerHTML = "";
 
   barcodeArray.forEach((value, index) => {
-  
     let barcodeImg = document.createElement("img")
     //id에 index를 추가하여 구분
     barcodeImg.id = "barcode " + index;
@@ -41,4 +47,9 @@ function generateBarcodes(barcodeArray) {
       height: 60, // 바코드 높이
     });
   });
+}
+
+function barcodeNewtab(inputArray) {
+  var url = "./barcode.html?param=" + encodeURIComponent(inputArray);
+  window.open(url, "_blank");
 }

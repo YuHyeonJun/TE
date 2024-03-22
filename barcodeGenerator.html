@@ -6,11 +6,6 @@
   <script src="barcodeGenerator.js"></script>
   <script src="JsBarcode.all.min.js"></script>
   <style>
-    @page {
-      size: 10.6cm 15.24cm;
-      margin: 5px;
-    }
-
     /* 생성된 바코드 엘리먼트의 스타일 수정 */
     #barcodeContainer {
       display: flex;
@@ -27,10 +22,11 @@
 </head>
 
 <body>
+  <button id="barcodeNewtab"> 바코드 저장</button>
   <div>
-    <textarea id="popupBarcodeValue" placeholder="바코드 입력"></textarea>
+    <textarea id="barcodeValue" placeholder="바코드 입력"></textarea>
   </div>
-  
+
   <div id="barcodeContainer"></div>
 
 </body>
